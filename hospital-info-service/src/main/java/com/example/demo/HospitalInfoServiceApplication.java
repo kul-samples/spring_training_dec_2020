@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.example.demo.model.Address;
@@ -14,6 +15,34 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HospitalInfoServiceApplication {
 
+	public static void handleAutoWiring(ApplicationContext ctx) {
+		
+		Doctor doc = ctx.getBean(Doctor.class);
+        
+		
+//		 if(doc.getPatient()!=null)
+//		 {
+//		log.info(doc.toString());
+//		 } else {
+//			 log.info("Register a Patient Bean");
+//		 }
+
+		 doc.getPatientList().forEach(System.out::println);
+
+	}
+	
+	public static void handleBeanScopes(ApplicationContext ctx) {
+		
+		Hospital hosp = ctx.getBean("malar",Hospital.class);
+		
+		System.out.println(hosp);
+		
+		System.out.println(" IS Singleton := "+ctx.isSingleton("malar"));
+		
+		System.out.println(" IS Protoype := "+ctx.isPrototype("malar"));
+		
+		
+	}
 	public static void main(String[] args) {
 		
 		 // reference of ConfigurableApplicationcontext is the IoC Container
@@ -40,18 +69,9 @@ public class HospitalInfoServiceApplication {
 //		 
 //		 System.out.println(appolloAddress);
 //		
+		handleBeanScopes(ctx);
 		
-		Doctor doc = ctx.getBean(Doctor.class);
-		
-//		 if(doc.getPatient()!=null)
-//		 {
-//		log.info(doc.toString());
-//		 } else {
-//			 log.info("Register a Patient Bean");
-//		 }
-
-		 doc.getPatientList().forEach(System.out::println);
-		 
+			 
 		ctx.close();
 	}
 
