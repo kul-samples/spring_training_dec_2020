@@ -1,6 +1,7 @@
 #myapp.bean.address = create
 #logging.level.org.springframework.boot=trace
 
+
 spring:
   config:
     activate:
