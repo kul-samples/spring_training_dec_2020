@@ -21,7 +21,7 @@ public class PatientService {
 	}
 	
 	
-	private List<Patient> getAllPatients(){
+	public List<Patient> getAllPatients(){
 		
 		  return this.repo.findAll();
 	}
