@@ -1,7 +1,11 @@
 package com.example.demo.repos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PatientRepository extends JpaRepository<T, ID> {
+import com.example.demo.entity.Patient;
+
+@Repository
+public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
 }
