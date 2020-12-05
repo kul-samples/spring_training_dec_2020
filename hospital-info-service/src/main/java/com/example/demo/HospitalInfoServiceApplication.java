@@ -31,15 +31,46 @@ public class HospitalInfoServiceApplication {
 
 	}
 	
+	public static void createBeans(ApplicationContext ctx) {
+		
+		
+		// getBean Method takes the Id and Type of the Bean as arguments
+		
+	
+		 Hospital obj = ctx.getBean("default",Hospital.class);
+		 
+		 System.out.println(obj);
+		 
+		 Hospital fortis = ctx.getBean("malar",Hospital.class);
+		 
+		 System.out.println(fortis);
+		 
+		 
+        Hospital manipal = ctx.getBean("manipalHospital",Hospital.class);
+		 
+		 System.out.println(manipal);
+		 
+		 
+        Address  appolloAddress = ctx.getBean("apollo",Address.class);
+		 
+		 System.out.println(appolloAddress);
+		
+	}
+	
 	public static void handleBeanScopes(ApplicationContext ctx) {
 		
 		Hospital hosp = ctx.getBean("malar",Hospital.class);
 		
-		System.out.println(hosp);
-		
+
+		Hospital hosp2 = ctx.getBean("malar",Hospital.class);
+
 		System.out.println(" IS Singleton := "+ctx.isSingleton("malar"));
 		
 		System.out.println(" IS Protoype := "+ctx.isPrototype("malar"));
+		
+		System.out.println("Is Address Bean Singleton :="+ hosp.getAddress());
+		
+		System.out.println("Is Address Bean Singleton :="+ hosp2.getAddress());
 		
 		
 	}
@@ -49,27 +80,12 @@ public class HospitalInfoServiceApplication {
 		
 		ConfigurableApplicationContext ctx= SpringApplication.run(HospitalInfoServiceApplication.class, args);
 		
-		// getBean Method takes the Id and Type of the Bean as arguments
+		//handleAutoWiring(ctx);
 		
-//		 Hospital obj = ctx.getBean("default",Hospital.class);
-//		 
-//		 System.out.println(obj);
-//		 
-//		 Hospital fortis = ctx.getBean("malar",Hospital.class);
-//		 
-//		 System.out.println(fortis);
-//		 
-//		 
-//         Hospital manipal = ctx.getBean("manipalHospital",Hospital.class);
-//		 
-//		 System.out.println(manipal);
-//		 
-//		 
-//        Address  appolloAddress = ctx.getBean("apollo",Address.class);
-//		 
-//		 System.out.println(appolloAddress);
-//		
-		handleBeanScopes(ctx);
+		//createBeans(ctx);
+		
+		
+		// handleBeanScopes(ctx);
 		
 			 
 		ctx.close();

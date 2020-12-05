@@ -3,10 +3,13 @@ package com.example.demo.config;
 import com.example.demo.model.*;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 
 import com.example.demo.model.Hospital;
 
@@ -18,16 +21,21 @@ public class ApplicationConfig {
 	// Factory Method for IoC container to create a instance
 	
 	@Bean()
+	@Scope(scopeName = ConfigurableBeanFactory.SCOPE_SINGLETON)
+	@Lazy
 	public Hospital malar() {
 		
+		System.out.println("Hospital called ===========");
 		// passing the method name itself as a reference
 		return new Hospital(1920, "Fortis Malar", 9840100, 600040,malarAddress());
 		
 	}
 	
 	@Bean
+	@Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public Address malarAddress() {
 		
+		System.out.println("=========== MALAR ADDRESS CALLED =======");
 		return new Address("Gandhi Street", "Nehru Nagar","Chennai",600050);
 		
 	}
