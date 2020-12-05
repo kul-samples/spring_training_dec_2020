@@ -51,7 +51,7 @@ public class ApplicationConfig {
 	
 	
 	@Bean(name="apollo")
-	@ConditionalOnProperty(name = "myapp.bean.address",havingValue = "update")
+	@ConditionalOnProperty(name = "myapp.bean.address",havingValue = "create")
 	public Address apolloAddress() {
 		
 		return new Address("Shivaji Street", "kalewadi","pune",400100);
