@@ -2,8 +2,10 @@ package com.example.demo.config;
 
 import com.example.demo.model.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.example.demo.model.Hospital;
+import com.example.demo.repos.PatientRepository;
 
 
 @Configuration
@@ -95,5 +98,25 @@ public class ApplicationConfig {
 	public Patient vikas() {
 		
 		return new Patient(25601,"Vikas",44);
+	}
+	
+	
+	public CommandLineRunner  runner() {
+		
+		return new CommandLineRunner() {
+			
+			@Autowired
+			private PatientRepository repo;
+			@Override
+			public void run(String... args) throws Exception {
+				
+				repo.save(new com.example.demo.entity.Patient(25601,"Vikas",44));
+				repo.save(new com.example.demo.entity.Patient(25602,"Vicky",45));
+				repo.save(new com.example.demo.entity.Patient(25603,"Manish",46));
+				
+				
+				
+			}
+		};
 	}
 }
