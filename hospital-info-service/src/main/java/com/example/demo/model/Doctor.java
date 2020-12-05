@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,11 @@ public class Doctor {
 	int doctorId;
 	String doctorName;
 	
+	// 0 Bean - required false sets null value - without it throws a nullpointer exception
+	//@Autowired
+	//@Autowired(required = false)
 	@Autowired
+	//@Qualifier(value = "vikas")
 	Patient patient;
 	
 	

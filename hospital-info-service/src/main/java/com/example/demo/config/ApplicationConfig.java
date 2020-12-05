@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import com.example.demo.model.Hospital;
 
@@ -58,4 +59,33 @@ public class ApplicationConfig {
 		
 	}
 	
+	
+	@Bean(name = "rajesh")
+	public Doctor doctorRajesh() {
+		
+		
+		Doctor doctor =new Doctor();
+		
+		doctor.setDoctorId(983);
+		doctor.setDoctorName("Rajesh Patil");
+		
+		return doctor;
+		
+	
+			}
+	
+	// Registering Just One Bean for Autowiring
+	@Bean
+	@Primary        // Even Though more than one bean of the same type exist only bean with @primary will be injected
+	public Patient sawant() {
+		
+		return new Patient(15601,"Sawant",34);
+	}
+	
+	
+	@Bean
+	public Patient vikas() {
+		
+		return new Patient(25601,"Vikas",44);
+	}
 }
