@@ -25,6 +25,12 @@ public class HospitalInfoServiceApplication {
 		 
 		 System.out.println(fortis);
 		 
+		 
+         Hospital manipal = ctx.getBean("manipalHospital",Hospital.class);
+		 
+		 System.out.println(manipal);
+		 
+		 
 		ctx.close();
 	}
 

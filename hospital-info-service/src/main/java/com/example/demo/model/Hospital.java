@@ -21,4 +21,6 @@ public class Hospital {
 	String hospitalName;
 	long phoneNumber;
 	long pinCode;
+	
+	Address address;
 }
