@@ -100,7 +100,7 @@ public class ApplicationConfig {
 		return new Patient(25601,"Vikas",44);
 	}
 	
-	
+	@Bean
 	public CommandLineRunner  runner() {
 		
 		return new CommandLineRunner() {

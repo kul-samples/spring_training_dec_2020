@@ -88,7 +88,7 @@ public class HospitalInfoServiceApplication {
 		// handleBeanScopes(ctx);
 		
 			 
-		ctx.close();
+		
 	}
 
 }
