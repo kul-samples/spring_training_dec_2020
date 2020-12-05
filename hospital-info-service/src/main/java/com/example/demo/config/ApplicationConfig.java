@@ -100,23 +100,5 @@ public class ApplicationConfig {
 		return new Patient(25601,"Vikas",44);
 	}
 	
-	@Bean
-	public CommandLineRunner  runner() {
-		
-		return new CommandLineRunner() {
-			
-			@Autowired
-			private PatientRepository repo;
-			@Override
-			public void run(String... args) throws Exception {
-				
-				repo.save(new com.example.demo.entity.Patient(25601,"Vikas",44));
-				repo.save(new com.example.demo.entity.Patient(25602,"Vicky",45));
-				repo.save(new com.example.demo.entity.Patient(25603,"Manish",46));
-				
-				
-				
-			}
-		};
-	}
+	
 }
