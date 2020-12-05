@@ -76,7 +76,7 @@ public class ApplicationConfig {
 	
 	// Registering Just One Bean for Autowiring
 	@Bean
-	@Primary        // Even Though more than one bean of the same type exist only bean with @primary will be injected
+	//@Primary        // Even Though more than one bean of the same type exist only bean with @primary will be injected
 	public Patient sawant() {
 		
 		return new Patient(15601,"Sawant",34);

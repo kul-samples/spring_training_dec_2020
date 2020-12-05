@@ -43,13 +43,15 @@ public class HospitalInfoServiceApplication {
 		
 		Doctor doc = ctx.getBean(Doctor.class);
 		
-		 if(doc.getPatient()!=null)
-		 {
-		log.info(doc.toString());
-		 } else {
-			 log.info("Register a Patient Bean");
-		 }
-		
+//		 if(doc.getPatient()!=null)
+//		 {
+//		log.info(doc.toString());
+//		 } else {
+//			 log.info("Register a Patient Bean");
+//		 }
+
+		 doc.getPatientList().forEach(System.out::println);
+		 
 		ctx.close();
 	}
 

@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -21,9 +23,12 @@ public class Doctor {
 	// 0 Bean - required false sets null value - without it throws a nullpointer exception
 	//@Autowired
 	//@Autowired(required = false)
-	@Autowired
+	//@Autowired
 	//@Qualifier(value = "vikas")
-	Patient patient;
+	//Patient patient;
 	
+	// IoC will aggregate the beans of type Patient and creates a collection 
+	@Autowired
+	List<Patient> patientList;
 	
 }
