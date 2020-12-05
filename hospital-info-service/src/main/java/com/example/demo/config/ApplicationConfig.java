@@ -3,6 +3,7 @@ package com.example.demo.config;
 import com.example.demo.model.*;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -47,4 +48,14 @@ public class ApplicationConfig {
 		return new Address("Patel Street", "sarvarkar Nagar","pune",400050);
 		
 	}
+	
+	
+	@Bean(name="apollo")
+	@ConditionalOnProperty(name = "myapp.bean.address",havingValue = "update")
+	public Address apolloAddress() {
+		
+		return new Address("Shivaji Street", "kalewadi","pune",400100);
+		
+	}
+	
 }

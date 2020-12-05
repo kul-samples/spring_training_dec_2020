@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.example.demo.model.Address;
 import com.example.demo.model.Hospital;
 
 @SpringBootApplication
@@ -30,6 +31,10 @@ public class HospitalInfoServiceApplication {
 		 
 		 System.out.println(manipal);
 		 
+		 
+        Address  appolloAddress = ctx.getBean("apollo",Address.class);
+		 
+		 System.out.println(appolloAddress);
 		 
 		ctx.close();
 	}
