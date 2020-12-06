@@ -78,8 +78,10 @@ public class PatientController {
 	}
 	
 	@GetMapping(path = "/api/v1/patients/update/{id}/{age}")
-	public Patient updateAge(@PathVariable("age") int age,@PathVariable("id") int id){
+	public ResponseEntity<String> updateAge(@PathVariable("id") int id,@PathVariable("age") int age){
 		
-		return this.service.updateAge(id, age);
+		int rowUpdate = this.service.updateAge(age, id);
+		
+		return ResponseEntity.ok(rowUpdate + " = Rows Updated");
 	}
 }

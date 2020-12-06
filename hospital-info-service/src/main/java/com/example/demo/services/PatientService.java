@@ -3,7 +3,9 @@ package com.example.demo.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.entity.Patient;
 import com.example.demo.repos.PatientRepository;
@@ -59,10 +61,10 @@ public class PatientService {
 		return this.repo.findByAgeGreaterThan(age);
 	}
 	
-   public Patient updateAge(int id, int age){
+   public int updateAge(int id, int age){
 		
 		return this.repo.updatePatientAge(id, age);
 	}
 	
-	
+  	
 }
