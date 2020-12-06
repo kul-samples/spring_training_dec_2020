@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.example.demo.repos.DoctorRepository;
 import com.example.demo.repos.PatientRepository;
 import com.example.demo.entity.*;
 @Configuration
@@ -29,5 +30,9 @@ public class JpaConfig {
 				
 			}
 		};
+		
+	
+		
+		
 	}
 }

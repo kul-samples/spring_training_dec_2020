@@ -32,7 +32,18 @@ public class Patient {
 	String patientName;
 	int age;
 	
-	     @ManyToOne
+	
+	
+	     public Patient(int patientId, String patientName, int age) {
+		super();
+		this.patientId = patientId;
+		this.patientName = patientName;
+		this.age = age;
+	}
+
+
+
+		@ManyToOne
 	    @JoinColumn(name="doctor_ref" ,referencedColumnName = "doctorId")
 	    @JsonIgnore
 	    private Doctor doctor;

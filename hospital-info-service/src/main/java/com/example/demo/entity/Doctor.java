@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,6 +27,7 @@ import lombok.experimental.FieldDefaults;
 @Table(name = "practo_doctors")
 public class Doctor {
 
+	@Id
 	int doctorId;
 	String doctorName;
 	
