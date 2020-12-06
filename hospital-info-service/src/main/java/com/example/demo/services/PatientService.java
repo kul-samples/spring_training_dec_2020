@@ -63,7 +63,10 @@ public class PatientService {
 	
    public int updateAge(int id, int age){
 		
+	   
 		return this.repo.updatePatientAge(id, age);
+		
+		
 	}
 	
   	
