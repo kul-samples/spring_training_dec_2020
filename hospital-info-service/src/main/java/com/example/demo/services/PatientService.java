@@ -48,4 +48,16 @@ public class PatientService {
 		   this.repo.delete(entity);
 		   
 	}
+	
+	public List<Patient> getPatientByName(String name){
+		
+		return this.repo.findByPatientName(name);
+	}
+	
+   public List<Patient> getPatientByAgeGreater(int age){
+		
+		return this.repo.findByAgeGreaterThan(age);
+	}
+	
+	
 }
