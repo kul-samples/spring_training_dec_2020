@@ -16,13 +16,14 @@ import lombok.extern.slf4j.Slf4j;
 @EnableAspectJAutoProxy
 public class LoggingAdvice {
 
-	@Before("within(* com.example.demo.*.*(..))")
+    
+	@Before("execution(* com.example.demo.controllers.*.*(..))")
 	public void logBefore(JoinPoint jp) {
 		
 		log.info(jp.getSignature().getName() + "Called");
 	}
 	
-	@Around("within(* com.example.demo.*.*(..))")
+	@Around("execution(* com.example.demo.*.*(..))")
 	public Object timeTaken(ProceedingJoinPoint jp) throws Throwable {
 		
 		   long startTime = System.currentTimeMillis();
@@ -33,7 +34,6 @@ public class LoggingAdvice {
 		
 		 String methodName =jp.getSignature().getName();
 		 
-		 System.out.println((String)obj);
 		   if(methodName.equals("findById")) {
 			   String resp =(String)obj;
 			   obj = resp.concat(" Ji");
