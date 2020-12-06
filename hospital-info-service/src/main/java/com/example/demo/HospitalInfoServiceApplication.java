@@ -9,10 +9,13 @@ import com.example.demo.model.Address;
 import com.example.demo.model.Doctor;
 import com.example.demo.model.Hospital;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
+@OpenAPIDefinition(info = @Info(title = "Hospital Info Service"))
 public class HospitalInfoServiceApplication {
 
 	public static void handleAutoWiring(ApplicationContext ctx) {
