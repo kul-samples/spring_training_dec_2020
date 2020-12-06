@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.entity.PathLab;
+import com.example.demo.entity.Payment;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,4 +35,9 @@ public class PathLabsInfoServiceApplication {
 		};
 	}
 
+	
+	public Payment payment() {
+		
+		return new Payment(100,"blood test",4500);
+	}
 }
