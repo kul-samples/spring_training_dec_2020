@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.example.demo.repo.PathLabRepository;
-import com.example.demo.entity.*;
 @SpringBootApplication
 public class PathLabsInfoServiceApplication {
 
