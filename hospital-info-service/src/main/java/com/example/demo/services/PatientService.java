@@ -59,5 +59,10 @@ public class PatientService {
 		return this.repo.findByAgeGreaterThan(age);
 	}
 	
+   public Patient updateAge(int id, int age){
+		
+		return this.repo.updatePatientAge(id, age);
+	}
+	
 	
 }

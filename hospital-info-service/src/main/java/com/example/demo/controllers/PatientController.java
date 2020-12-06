@@ -76,4 +76,10 @@ public class PatientController {
 		
 		return this.service.getPatientByAgeGreater(age);
 	}
+	
+	@GetMapping(path = "/api/v1/patients/update/{id}/{age}")
+	public Patient updateAge(@PathVariable("age") int age,@PathVariable("id") int id){
+		
+		return this.service.updateAge(id, age);
+	}
 }
