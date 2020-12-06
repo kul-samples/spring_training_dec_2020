@@ -58,6 +58,8 @@ public class PatientController {
 	@DeleteMapping(path = "/api/v1/patients")
 	public ResponseEntity<String> remoPatient(@RequestBody Patient entity){
 		
+		   this.service.removePatient(entity);
+		   
 		   return ResponseEntity.ok("Record Deleted");
 		   
 	}

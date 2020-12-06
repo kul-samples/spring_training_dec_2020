@@ -44,6 +44,7 @@ public class PatientService {
 	
 	public void removePatient(Patient entity) {
 		
+		
 		   this.repo.delete(entity);
 		   
 	}
