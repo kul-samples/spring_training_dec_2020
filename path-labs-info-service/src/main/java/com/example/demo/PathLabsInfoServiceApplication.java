@@ -17,6 +17,12 @@ public class PathLabsInfoServiceApplication {
 		SpringApplication.run(PathLabsInfoServiceApplication.class, args);
 	}
 	
+	@Bean
+	public Payment Payment() {
+		
+		return new Payment(101, "lab payment", 500);
+	}
+	
 	
 	@Bean
 	public CommandLineRunner runner() {
