@@ -26,4 +26,25 @@ public class PatientService {
 		  return this.repo.findAll();
 	}
 	
+	public Patient getPatientByid(int id) {
+		
+		return this.repo.findById(id).orElseThrow(() -> new RuntimeException("Id not found"));
+	}
+	
+	public Patient addPatient(Patient entity) {
+		
+		  return this.repo.save(entity);
+	}
+	
+	public Patient updatePatient(Patient entity) {
+		
+		  return addPatient(entity);
+	}
+	
+	
+	public void removePatient(Patient entity) {
+		
+		   this.repo.delete(entity);
+		   
+	}
 }
