@@ -18,8 +18,12 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
     
-
-      
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"      
 server:
   port: 5050
   
