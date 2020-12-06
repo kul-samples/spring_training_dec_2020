@@ -64,14 +64,14 @@ public class PatientController {
 		   
 	}
 	
-	@GetMapping(path = "/api/v1/patients/{name}")
+	@GetMapping(path = "/api/v1/patients/name/{name}")
 	public List<Patient> getPatientByName(@PathVariable("name") String name){
 		
 		return this.service.getPatientByName(name);
 	}
 	
 
-	@GetMapping(path = "/api/v1/patients/{age}")
+	@GetMapping(path = "/api/v1/patients/age/{age}")
 	public List<Patient> getPatientByAgeGreater(@PathVariable("age") int age){
 		
 		return this.service.getPatientByAgeGreater(age);
