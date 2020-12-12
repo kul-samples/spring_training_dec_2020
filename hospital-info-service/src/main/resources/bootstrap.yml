@@ -1,0 +1,10 @@
+
+spring:
+  cloud:
+    config:
+      uri:
+      - http://localhost:1010  application:
+    name: hospital-info-service
+    
+    
+    

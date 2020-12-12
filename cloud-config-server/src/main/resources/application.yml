@@ -10,6 +10,14 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/vatsanTraining/spring-cloud-config.git
+          uri: https://github.com/vatsanTraining/spring-cloud-config
+          clone-on-start: true
+ 
           
           
+management:
+   endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
