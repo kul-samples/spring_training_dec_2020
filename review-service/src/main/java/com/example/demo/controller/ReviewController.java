@@ -17,9 +17,8 @@ public class ReviewController {
 	   public String getReview() {
 		   
 		   
-		  int rating = Integer.parseInt(port)/1000;
 		  
-		  return Integer.toString(rating);
+		  return port;
 	   }
 	   
 	   
