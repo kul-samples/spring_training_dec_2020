@@ -1,5 +1,5 @@
-package com.example.demo;
-
+package com.example.demo.services;
+import com.example.demo.model.*;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
