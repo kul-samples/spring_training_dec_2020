@@ -13,8 +13,8 @@ eureka:
 
 zuul:
   host:
-    socket-timeout-millis: 2000000     
-    connect-timeout-millis: 200000
+    socket-timeout-millis:  2000000     
+    connect-timeout-millis: 2000000
   routes:
     lab-service:
       path: /lab-service/**
