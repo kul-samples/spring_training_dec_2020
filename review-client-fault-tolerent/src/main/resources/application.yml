@@ -1,0 +1,20 @@
+server:
+  port: 9595
+
+spring:
+  application:
+    name: hospital-review-client
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:7878
+    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+      
