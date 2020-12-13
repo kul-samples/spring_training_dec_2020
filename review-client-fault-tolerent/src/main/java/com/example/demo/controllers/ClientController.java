@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+
 @RestController
 public class ClientController {
 
@@ -21,6 +24,8 @@ public class ClientController {
 	
 	
 	@GetMapping(path = "/reviews/{city}")
+	@HystrixCommand(fallbackMethod = "fetchReviewsFallBack",commandProperties =  
+	      @HystrixProperty(name ="execution.isolation.thread.timeoutInMilliseconds",value = "3000"))
 	public String fetchReviews(@PathVariable("city") String name) {
 		
 		ServiceInstance instance = loadBalancer.choose("hospital-review-service");
@@ -32,4 +37,11 @@ public class ClientController {
 		
 		return  template.getForObject(reqURI, String.class);
 	}
+	
+	
+	public String fetchReviewsFallBack(String name) {
+		
+		return " default rating - 3.4";
+	}
+	
 }

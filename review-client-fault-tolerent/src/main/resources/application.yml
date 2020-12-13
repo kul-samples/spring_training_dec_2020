@@ -4,11 +4,6 @@ server:
 spring:
   application:
     name: hospital-review-client
-  boot:
-    admin:
-      client:
-        url:
-        - http://localhost:7878
     
 eureka:
   client:
