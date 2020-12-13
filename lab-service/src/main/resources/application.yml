@@ -1,4 +1,19 @@
 
 
+spring:
+  profiles:
+  - "dev"
+
 server:
   port: 3232
+
+  
+---
+
+spring:
+  profiles:
+  - "prod"
+
+server:
+  port: 3235
+  
