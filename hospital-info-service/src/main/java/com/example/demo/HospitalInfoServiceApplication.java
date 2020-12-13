@@ -85,6 +85,7 @@ public class HospitalInfoServiceApplication {
 		
 		ConfigurableApplicationContext ctx= SpringApplication.run(HospitalInfoServiceApplication.class, args);
 		
+		 
 		handleAutoWiring(ctx);
 		
 		//createBeans(ctx);

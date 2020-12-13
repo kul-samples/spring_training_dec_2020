@@ -12,27 +12,27 @@ import com.example.demo.entity.*;
 public class JpaConfig {
 
 	
-	@Bean
-	public CommandLineRunner  runner() {
+//	@Bean
+//	public CommandLineRunner  runner() {
+//		
+//		return new CommandLineRunner() {
+//			
+//			@Autowired
+//			private PatientRepository repo;
+//			@Override
+//			public void run(String... args) throws Exception {
+//				
+//				repo.save(new Patient(25601,"Vikas",44));
+//				repo.save(new Patient(25602,"Vicky",45));
+//				repo.save(new Patient(25603,"Manish",46));
+//				
+//				
+//				
+//			}
+//		};
+//		
+//	
+//		
 		
-		return new CommandLineRunner() {
-			
-			@Autowired
-			private PatientRepository repo;
-			@Override
-			public void run(String... args) throws Exception {
-				
-				repo.save(new Patient(25601,"Vikas",44));
-				repo.save(new Patient(25602,"Vicky",45));
-				repo.save(new Patient(25603,"Manish",46));
-				
-				
-				
-			}
-		};
-		
-	
-		
-		
-	}
+	//}
 }

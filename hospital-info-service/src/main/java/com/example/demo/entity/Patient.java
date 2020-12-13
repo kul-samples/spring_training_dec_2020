@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,8 +29,11 @@ import lombok.experimental.FieldDefaults;
 public class Patient {
 
 	@Id    //JPA Annotations
+	@Column(name = "patient_Id")
 	int patientId;
+	@Column(name="patientName")
 	String patientName;
+	@Column(name = "age")
 	int age;
 	
 	
