@@ -32,4 +32,10 @@ public class HospitalController {
 		 return obj;
 	}
 	
+	
+	@GetMapping(path = "/message")
+	public String getMessage() {
+		
+		return "hello world";
+	}
 }
