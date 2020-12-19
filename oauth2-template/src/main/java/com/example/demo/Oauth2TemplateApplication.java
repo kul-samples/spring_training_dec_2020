@@ -18,7 +18,7 @@ public class Oauth2TemplateApplication {
 	
 		OAuth2RestTemplate template = ctx.getBean(OAuth2RestTemplate.class);
 	
-		String resp =  template.getForObject("http://localhost:4040/api/v1/hospitals/1", String.class);
+		String resp =  template.getForObject("http://localhost:4040/api/v1/hospitals/2", String.class);
 		
 		 System.out.println(resp);
 	}
