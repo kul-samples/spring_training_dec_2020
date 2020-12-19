@@ -24,19 +24,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		
-		//auth.jdbcAuthentication().passwordEncoder(encoder()).dataSource(dataSource);
+		auth.jdbcAuthentication().passwordEncoder(encoder()).dataSource(dataSource);
 		
 		
 
-String query1 = "select userName,password,enabled from users where userName = ?";
-
-String query2  = "select userName,authority from authorities where userName=?"; 
-
-auth.jdbcAuthentication()
-         .dataSource(dataSource)
-         .authoritiesByUsernameQuery(query1)
-         .authoritiesByUsernameQuery(query2)
-         .passwordEncoder(new BCryptPasswordEncoder());
+//String query1 = "select userName,password,enabled from users where userName = ?";
+//
+//String query2  = "select userName,authority from authorities where userName=?"; 
+//
+//auth.jdbcAuthentication()
+//         .dataSource(dataSource)
+//         .authoritiesByUsernameQuery(query1)
+//         .authoritiesByUsernameQuery(query2)
+//         .passwordEncoder(new BCryptPasswordEncoder());
 
 	
 	}
@@ -56,11 +56,11 @@ auth.jdbcAuthentication()
 	}
 
 	// This Bean provides the CRUD Operations to work the user and authorities tables
-//	@Bean
-//	public JdbcUserDetailsManager  userDetailsManager() {
-//		
-//		return new JdbcUserDetailsManager(dataSource);
-//	}
+	@Bean
+	public JdbcUserDetailsManager  userDetailsManager() {
+		
+		return new JdbcUserDetailsManager(dataSource);
+	}
 	
 	@Bean
 	public BCryptPasswordEncoder encoder() {
