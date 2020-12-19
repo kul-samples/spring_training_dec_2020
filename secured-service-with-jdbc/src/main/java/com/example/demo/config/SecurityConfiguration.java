@@ -20,26 +20,42 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-		
-		auth.jdbcAuthentication().passwordEncoder(encoder()).dataSource(dataSource);
-		
-		
-
-//String query1 = "select userName,password,enabled from users where userName = ?";
-//
-//String query2  = "select userName,authority from authorities where userName=?"; 
-//
-//auth.jdbcAuthentication()
-//         .dataSource(dataSource)
-//         .authoritiesByUsernameQuery(query1)
-//         .authoritiesByUsernameQuery(query2)
-//         .passwordEncoder(new BCryptPasswordEncoder());
-
 	
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+		
+		String query1 = "select userName,password,enabled from users where userName = ?";
+		String query2  = "select userName,authority from authorities where userName=?"; 
+		
+		auth.jdbcAuthentication()
+		         .dataSource(dataSource)
+		         .usersByUsernameQuery(query1)
+		         .authoritiesByUsernameQuery(query2)
+		         .passwordEncoder(new BCryptPasswordEncoder());
+
+		
 	}
+	
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//		
+//		auth.jdbcAuthentication().passwordEncoder(encoder()).dataSource(dataSource);
+//		
+//		
+//
+////String query1 = "select userName,password,enabled from users where userName = ?";
+////
+////String query2  = "select userName,authority from authorities where userName=?"; 
+////
+////auth.jdbcAuthentication()
+////         .dataSource(dataSource)
+////         .authoritiesByUsernameQuery(query1)
+////         .authoritiesByUsernameQuery(query2)
+////         .passwordEncoder(new BCryptPasswordEncoder());
+//
+//	
+//	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -56,11 +72,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	// This Bean provides the CRUD Operations to work the user and authorities tables
-	@Bean
-	public JdbcUserDetailsManager  userDetailsManager() {
-		
-		return new JdbcUserDetailsManager(dataSource);
-	}
+//	@Bean
+//	public JdbcUserDetailsManager  userDetailsManager() {
+//		
+//		return new JdbcUserDetailsManager(dataSource);
+//	}
 	
 	@Bean
 	public BCryptPasswordEncoder encoder() {

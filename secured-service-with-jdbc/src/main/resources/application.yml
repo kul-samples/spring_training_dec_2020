@@ -3,6 +3,7 @@ server:
   
 spring:
   datasource:
+    initialization-mode: always
     url: jdbc:mysql://localhost:3306/test
     username: root
     password: srivatsan
@@ -10,7 +11,8 @@ spring:
     
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true      
+    

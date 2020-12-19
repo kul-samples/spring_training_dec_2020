@@ -2,6 +2,8 @@ package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -11,6 +13,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 @EnableAuthorizationServer
+@Configuration
 public class AuthServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	
@@ -29,7 +32,7 @@ public class AuthServerConfiguration extends AuthorizationServerConfigurerAdapte
 	.authorizedGrantTypes("password")
 	.secret(encoder().encode("pass345"))
 	.scopes("read","write")
-	.redirectUris("http://localhost:4046/login/oauth2/code/ourclient")
+	.redirectUris("http://localhost:4040/login/oauth2/code/ourclient")
 	.autoApprove(false);
 
 
