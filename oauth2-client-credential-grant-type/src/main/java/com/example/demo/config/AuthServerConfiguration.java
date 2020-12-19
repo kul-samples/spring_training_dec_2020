@@ -29,10 +29,10 @@ public class AuthServerConfiguration extends AuthorizationServerConfigurerAdapte
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 	clients.inMemory()
 	.withClient("ourclient")
-	.authorizedGrantTypes("password")
+	.authorizedGrantTypes("client_credentials")
 	.secret(encoder().encode("pass345"))
 	.scopes("read","write")
-	.redirectUris("http://localhost:4040/login/oauth2/code/ourclient")
+	.redirectUris("http://localhost:6060/login/oauth2/code/ourclient")
 	.autoApprove(false);
 
 

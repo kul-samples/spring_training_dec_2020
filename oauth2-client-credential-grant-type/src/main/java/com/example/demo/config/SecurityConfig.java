@@ -12,16 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	     @Autowired
-	    private PasswordEncoder encoder;
+	     
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-        .withUser("india").password(encoder.encode("india"))
-        .roles("USER");
-
-	}
+	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
