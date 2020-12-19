@@ -2,6 +2,9 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.example.demo.model.Hospital;
 
 @SpringBootApplication
 public class Oauth2SocialLoginGithubApplication {
@@ -10,4 +13,16 @@ public class Oauth2SocialLoginGithubApplication {
 		SpringApplication.run(Oauth2SocialLoginGithubApplication.class, args);
 	}
 
+	@Bean
+	public Hospital malar() {
+		
+		return new Hospital(101,"Malar Hospital",100100);
+	}
+	
+	@Bean
+	public Hospital appollo() {
+		
+		return new Hospital(102,"Apollo Hospital",200100);
+		
+	}
 }

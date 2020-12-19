@@ -39,3 +39,8 @@ public class HospitalController {
 		return "hello world";
 	}
 }
+
+//Client Id :96e42120e347f2282405
+//
+//client Secret 7a814421d5c9803bfcb383d4d11ac6709bfd16a1
+//
