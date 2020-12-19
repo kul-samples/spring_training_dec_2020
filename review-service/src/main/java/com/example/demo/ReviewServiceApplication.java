@@ -12,4 +12,19 @@ public class ReviewServiceApplication {
 		SpringApplication.run(ReviewServiceApplication.class, args);
 	}
 
+	
+//    @Bean
+//    public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
+//        return builder.routes()
+//                .route(r -> r.path("/employee/**")
+//                        .uri("lb://FIRST-SERVICE")
+//                        .id("employeeModule"))
+//
+//                .route(r -> r.path("/consumer/**")
+//                        .uri("lb://SECOND-SERVICE")
+//                        .id("consumerModule"))
+//                .build();
+//    }
+
+
 }
