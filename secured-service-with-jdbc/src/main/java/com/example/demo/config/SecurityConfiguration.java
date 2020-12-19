@@ -21,62 +21,37 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private DataSource dataSource;
 	
 	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+	@Override
+	public void configure(AuthenticationManagerBuilder auth) throws Exception{
 		
-		String query1 = "select userName,password,enabled from users where userName = ?";
-		String query2  = "select userName,authority from authorities where userName=?"; 
+		 
 		
 		auth.jdbcAuthentication()
 		         .dataSource(dataSource)
-		         .usersByUsernameQuery(query1)
-		         .authoritiesByUsernameQuery(query2)
+		         .usersByUsernameQuery(
+		                 "SELECT username, password, enabled from users where username = ?")
+		             .authoritiesByUsernameQuery(
+		                 "SELECT u.username, a.authority " +
+		                 "FROM authorities a, users u " +
+		                 "WHERE u.username = ? " +
+		                 "AND u.username = a.username"
+		             )
 		         .passwordEncoder(new BCryptPasswordEncoder());
 
 		
 	}
 	
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//
-//		
-//		auth.jdbcAuthentication().passwordEncoder(encoder()).dataSource(dataSource);
-//		
-//		
-//
-////String query1 = "select userName,password,enabled from users where userName = ?";
-////
-////String query2  = "select userName,authority from authorities where userName=?"; 
-////
-////auth.jdbcAuthentication()
-////         .dataSource(dataSource)
-////         .authoritiesByUsernameQuery(query1)
-////         .authoritiesByUsernameQuery(query2)
-////         .passwordEncoder(new BCryptPasswordEncoder());
-//
-//	
-//	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-//		http.authorizeRequests()
-//		    .antMatchers("/api/v1/hospital/**")
-//		      .authenticated().and().httpBasic().and().csrf().disable();
-//	
-		
 		http.authorizeRequests()
-	    .antMatchers("/api/v1/hospitals/**")
-	      .authenticated().and().formLogin().and().logout().logoutSuccessUrl("/api/v1/hospitals/**");
+		    .antMatchers("/api/v1/hospital/**")
+		      .authenticated().and().httpBasic().and().csrf().disable();
+	
+		
 
 	}
-
-	// This Bean provides the CRUD Operations to work the user and authorities tables
-//	@Bean
-//	public JdbcUserDetailsManager  userDetailsManager() {
-//		
-//		return new JdbcUserDetailsManager(dataSource);
-//	}
 	
 	@Bean
 	public BCryptPasswordEncoder encoder() {

@@ -3,6 +3,7 @@ package com.example.demo.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.sleuth.annotation.ContinueSpan;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
+import org.springframework.cloud.sleuth.annotation.SpanTag;
 import org.springframework.stereotype.Service;
 
 import brave.Tracer;
@@ -34,7 +35,7 @@ public class InfoService {
 		try {
 			Thread.sleep(1000);
 			
-			resp = thirdOperations();
+			resp = thirdOperations("Ramesh");
 		} catch (InterruptedException e) {
 			log.debug("Inside catch block");
 			e.printStackTrace();
@@ -47,9 +48,9 @@ public class InfoService {
 	
 	
 	@ContinueSpan
-	public String thirdOperations() {
+	public String thirdOperations(@SpanTag("bye") String name) {
 		
 		
-		return "Bye Bye";
+		return name +"Bye Bye";
 	}
 }

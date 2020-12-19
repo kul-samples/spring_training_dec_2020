@@ -6,3 +6,9 @@ insert into users (username, password, enabled) values ('nepal','$2a$10$nSwbkfLj
 
 
 insert into authorities (username, authority) values ('nepal', 'ROLE_ADMIN');
+
+
+insert into users (username, password, enabled) values ('guest','$2a$10$hk7UqyBA3aETf/rfre4m7.TvWrEtsQW4fCInKhe2TQEyINSnG6s8a',true);
+
+
+insert into authorities (username, authority) values ('guest', 'ROLE_ADMIN');
