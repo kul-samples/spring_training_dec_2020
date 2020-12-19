@@ -8,12 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	
+	// Spring will read the application.yml and create the datasource object
 	@Autowired
 	private DataSource dataSource;
 	
@@ -21,7 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		
-		auth.jdbcAuthentication().dataSource(dataSource);
+		auth.jdbcAuthentication().passwordEncoder(encoder()).dataSource(dataSource);
 		
 	
 	}
@@ -46,4 +47,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return new JdbcUserDetailsManager(dataSource);
 	}
 	
+	@Bean
+	public BCryptPasswordEncoder encoder() {
+		
+		return new BCryptPasswordEncoder();
+	}
 }
