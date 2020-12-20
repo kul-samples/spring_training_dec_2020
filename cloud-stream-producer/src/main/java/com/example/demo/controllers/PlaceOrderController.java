@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ public class PlaceOrderController {
 
 	
 	@Autowired
+	@Qualifier("output")
 	private MessageChannel channel;
 	
 	@PostMapping(path = "/api/v1/orders")
