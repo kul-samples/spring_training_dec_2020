@@ -20,7 +20,7 @@ public class KafkaConfig {
 		
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "order-group");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "sales-group");
         return new DefaultKafkaConsumerFactory(props, new StringDeserializer(),
                   new JsonDeserializer<>(Order.class));
 

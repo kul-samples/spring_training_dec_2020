@@ -25,7 +25,7 @@ public class KafkaConfig {
 		Map<String,Object> configs = new HashMap<>();
 		
 		
-		configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9200");
+		configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		
@@ -44,6 +44,6 @@ public class KafkaConfig {
 	 @Bean
 	 public NewTopic topic1() {
 		 
-		 return new NewTopic("orders",1,(short)1);
+		 return new NewTopic("saleorder",1,(short)1);
 	 }
 }

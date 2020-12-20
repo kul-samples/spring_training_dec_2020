@@ -14,13 +14,13 @@ public class OrderConsumer {
 	public CountDownLatch latch = new CountDownLatch(3);
 	
 	
-	@KafkaListener(topics = "orders",groupId = "order-group",containerFactory = "listnerFactory")
+	@KafkaListener(topics = "saleorder",groupId = "sales-group",containerFactory = "listnerFactory")
 	public void listener(Order entity) {
 		
 		
 		System.out.println("Recevied Message :="+ entity);
 		
 		
-		
+		latch.countDown();
 	}
 }

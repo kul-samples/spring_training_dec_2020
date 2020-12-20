@@ -27,6 +27,6 @@ public class KafkaProducerApplication {
 	@Bean
 	public Order firstOrder() {
 		
-		return new Order(101,"Ramesh",5600);
+		return new Order(501,"Manish",15600);
 	}
 }

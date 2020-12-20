@@ -17,7 +17,7 @@ public class OrderProducer {
 	
 	public void sendOrders(Order entity) {
 		
-        ListenableFuture<SendResult<String, Order>> future =  template.send("orders",entity);
+        ListenableFuture<SendResult<String, Order>> future =  template.send("saleorder",entity);
         
                  future.addCallback(new ListenableFutureCallback<SendResult<String, Order>>() {
 
