@@ -7,11 +7,6 @@ spring:
     activate:
       on-profile:
       - "dev"
-  boot:
-    admin:
-      client:
-        url:
-        - http://localhost:7878
     
 eureka:
   client:

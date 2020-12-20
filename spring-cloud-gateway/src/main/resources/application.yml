@@ -1,0 +1,28 @@
+ #the URL has a scheme of lb uses the Spring Cloud LoadBalancerClient to resolve the name 
+ # hospital-review-service to an actual host and port and replaces the URI in the same attribute
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: hosp-review
+          uri: lb://HOSPITAL-REVIEW-SERVICE
+          predicates:
+            - Path=/api/v1/reviews/** 
+            #first letter must be a capital letter 
+  application:
+    name: API-GATEWAY
+     
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

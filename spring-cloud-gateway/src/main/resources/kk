@@ -1,0 +1,30 @@
+ -            - id: sripy-client
+          uri: localhost:8080
+          predicates:
+            - Path=/client/ #first letter must be a capital letter 
+  application:
+    name: API-GATEWAY
+ 
+        
+        
+        
+        
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: order-service
+                fallbackuri: forward:/orderFallBack
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: payment-service
+                fallbackuri: forward:/paymentFallback
+                
