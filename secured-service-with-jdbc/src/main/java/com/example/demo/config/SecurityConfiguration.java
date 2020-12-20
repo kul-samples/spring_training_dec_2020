@@ -13,14 +13,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	// Spring will read the application.yml and create the datasource object
 	@Autowired
 	private DataSource dataSource;
 	
 	
+	@Bean
+	public BCryptPasswordEncoder encoder() {
+		
+		return new BCryptPasswordEncoder();
+	}
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception{
 		
@@ -53,9 +56,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	}
 	
-	@Bean
-	public BCryptPasswordEncoder encoder() {
-		
-		return new BCryptPasswordEncoder();
-	}
+	
 }
